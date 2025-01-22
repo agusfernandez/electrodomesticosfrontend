@@ -1,0 +1,91 @@
+.footer {
+  background-color: #023047!important;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-sect .subtitle {
+  font-weight: 700;
+}
+
+.footer-sect {
+  background-color: #164156 !important;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
+}
+  
+.footer a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-family: "Chakra Petch", sans-serif;
+}
+  
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+}
+  
+.footer-bottom {
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+ul {
+  padding-left: 0!important;
+}
+
+.footer-links {
+  padding: 40px 20px;
+  background-color: #023047!important;
+
+}
+
+
+
+  /*Desktop*/
+
+  @media screen and (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+    }
+
+    .footer-section > h3 {
+      margin-bottom: 20px;
+    }
+  
+  }
+  
+  /*Mobile*/
+  @media screen and (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+
+    .footer-section {
+      border-bottom: 1px solid #fff;
+      padding: 15px 0;
+      position: relative;
+    }
+
+    .arrow {
+      color:  #fff;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    .socialicons {
+      font-size: 12px;
+      margin: 10px 0;
+    }
+  }

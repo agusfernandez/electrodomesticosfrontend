@@ -1,0 +1,141 @@
+.productsBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.productsContainer {
+    margin-top: 40px;
+}
+
+.card {
+    border: 1px solid #000 !important;
+    position: relative;
+    width: 300px;
+    flex: 1 1 auto; 
+    margin: 0 auto;
+}
+
+.imageCard {
+    width: 100%;
+    object-fit: contain;
+}
+
+.card-body {
+    background-color: #FAF9F9;
+    border-radius: 0 0 5px 5px;
+    font-family: "Chakra Petch", sans-serif;
+
+}
+
+.card-text {
+    margin-bottom: 5px;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.6rem;
+}
+
+.conditiontag {
+    background-color: #FFB703;
+    padding: 2px 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.btn-primary-card {
+    background-color: #023047!important;
+    font-size: 18px!important;
+    border: none!important;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+.bannerCatalog {
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+  }
+  
+.custom-spinner {
+    width: 100px;        
+    height: 100px;       
+    color: #023047;      
+}
+
+.banner-img-catalog {
+    object-fit: contain;
+    width: 100%;
+}
+
+.listContainer  {
+    margin: 10px 0 60px;
+}
+
+
+.listitle {
+    margin-bottom: 20px;
+}
+
+.listrow {
+    margin: 20px 0;
+}
+
+.listcard {
+    height: 295px;
+}
+
+.listcard .card {
+    width: auto;
+    height: 295px;
+
+}
+
+.listcard .card-body {
+    border-radius: 5px;
+    height: 295px;
+    overflow: hidden;
+   
+
+}
+
+
+
+
+  /*Desktop*/
+
+  @media screen and (min-width: 768px) {
+    .imageCard {
+        height: 20vw;
+
+    }
+  
+  }
+
+
+  /*Mobile*/
+
+  @media screen and (max-width: 768px) {
+    .imageCard {
+        height: 50vw;
+    }
+  
+  }

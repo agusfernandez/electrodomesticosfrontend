@@ -1,0 +1,60 @@
+[
+    {
+        "id":1,
+        "nombre":"Cafetera Expresso",
+        "categoria":"usado",
+        "img":"./img/products/1.jpg",
+        "precio": 6000
+    },
+    {
+        "id":2,
+        "nombre":"Mixer Prime All in One",
+        "categoria":"new",
+        "img":"./img/products/2.jpg",
+        "precio": 2000
+    },
+    {
+        "id":3,
+        "nombre":"Pava Electrica",
+        "categoria":"new",
+        "img":"./img/products/3.jpg",
+        "precio": 20000
+    },
+    {
+        "id":4,
+        "nombre":"Plancha a Vapor",
+        "categoria":"usado",
+        "img":"./img/products/4.jpg",
+        "precio": 7000
+    },
+    {
+        "id":5,
+        "nombre":"Freidora Electrica Overtech",
+        "categoria":"usado",
+        "img":"./img/products/5.jpg",
+        "precio": 30000
+    },
+    {
+        "id":6,
+        "nombre":"Multiprocesadora Ultima Generacion",
+        "categoria":"new",
+        "img":"./img/products/6.jpg",
+        "precio": 30000
+    },
+    {
+        "id":7,
+        "nombre":"Yogurtera Gran Capacidad 12 Frascos",
+        "categoria":"new",
+        "img":"./img/products/7.jpg",
+        "precio": 120000
+    },
+    {
+        "id":8,
+        "nombre":"Extractor de jugo",
+        "categoria":"usado",
+        "img":"./img/products/8.jpg",
+        "precio": 90000
+    }
+
+]
+

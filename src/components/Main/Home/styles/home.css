@@ -1,0 +1,62 @@
+.bannersContainers {
+    margin-top: 60px;
+}
+
+.colBanner {
+    padding: 0 20px;
+    position: relative;
+}
+
+.cards-home {
+    border: 1px solid #000 !important;
+    position: relative;
+    flex: 1 1 auto; 
+    margin: 0 auto;
+}
+
+.btn-banner {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: auto!important;
+    background-color: #FFB703!important;
+    font-size: 14px!important;
+    font-weight: 600!important;
+    border: 0!important;
+    color: #023047!important;
+}
+
+.listcard {
+    padding: 0 10px; 
+  }
+
+.imageCardHome {
+    width: 100%;
+    object-fit: contain;
+}
+
+.slick-dots {
+    bottom: -40px!important;
+}
+
+
+@media screen and (min-width: 768px) {
+    .cards-home {
+       width: 90%!important;
+    }
+
+    .imageCardHome {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .colBanner {
+        margin: 10px 0;
+    }
+
+    .imageCardHome {
+        height: 450px;
+    }
+}
+

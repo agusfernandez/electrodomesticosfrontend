@@ -1,0 +1,81 @@
+/* Contenedor del filtro de búsqueda */
+.search-filter {
+    width: 100%; /* Ancho completo del contenedor del filtro */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin: 20px auto;
+  }
+  
+  /* Estilo del formulario */
+  .search-filter form {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  /* Input de búsqueda */
+  .search-filter input {
+    flex-grow: 1; /* El input ocupa todo el espacio disponible */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Separación entre el input y el botón */
+    width: 50%;
+  }
+
+  
+  /* Botón de búsqueda */
+  .search-filter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #023047!important;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+  }
+  
+  /* Efecto hover en el botón */
+  .search-filter button:hover {
+    background-color: #0056b3;
+  }
+
+  .search-block-group {
+    display: flex;
+    width: 100%;
+  }
+
+  .search-block-group .form-label {
+    width: 20%;
+  }
+
+  @media (min-width: 768px) {
+    .search-filter form {
+      flex-direction: row;
+    }
+    .search-block-group {
+      flex-direction: row;
+    }
+
+    .btn-search-primary {
+      margin: 0;
+    }
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .search-filter form {
+      flex-direction: column;
+      align-items: stretch; /* Alinea el input y el botón en una columna */
+    }
+  
+    .search-filter input {
+      margin-right: 0;
+      margin-bottom: 10px; /* Espacio entre el input y el botón */
+    }
+  }
+  

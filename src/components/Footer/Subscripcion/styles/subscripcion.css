@@ -1,0 +1,23 @@
+
+
+.newsletterform {
+    display: flex;
+    gap: 10px;
+    width: 60%;
+    margin: 20px auto;
+
+}
+
+.newsletter-input {
+    width: 60%;
+}
+
+.btn-newsletter {
+    background-color: #FFB703 !important;
+    border: 0!important;
+    font-weight: 800!important;
+}
+
+.mails-newsletter {
+    font-size: 14px;
+}
