@@ -48,15 +48,15 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link><Link to='/'>Home</Link></Nav.Link>
                             <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
-                            <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+                            <Nav.Link><Link to="">Destacados</Link></Nav.Link>
                             <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Registro</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                   Admin
-                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Registro</NavDropdown.Item>
                             </NavDropdown>
+                            <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+
+                    
                         </Nav>
                     </Navbar.Collapse>
                     <Nav.Item className="cart"><Link to="/cart"><IoIosCart className='cart-icon'/> ({cartItems.length})</Link></Nav.Item>
