@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import Home from '../Main/Home/Home';
 import Contacto from '../Main/Contacto/Contacto';
@@ -48,6 +49,14 @@ const Header = () => {
                             <Nav.Link><Link to='/'>Home</Link></Nav.Link>
                             <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
                             <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+                            <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Registro</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.4">
+                                   Admin
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                     <Nav.Item className="cart"><Link to="/cart"><IoIosCart className='cart-icon'/> ({cartItems.length})</Link></Nav.Item>
