@@ -8,11 +8,8 @@ import Image from 'react-bootstrap/Image';
 import Home from '../Main/Home/Home';
 import Contacto from '../Main/Contacto/Contacto';
 import Products from '../Main/Products/Products';
-import CartPage from '../Main/CartPage/CartPage';  // Importar la página del carrito
+import CartPage from '../Main/CartPage/CartPage'; 
 import { IoIosCart } from "react-icons/io";
-
-
-
 import './styles/header.css';
 
 const Header = () => {
