@@ -1,0 +1,135 @@
+/* General Account Page Styles */
+.account-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-container h2 {
+    font-family: "Chakra Petch", sans-serif;
+    color: #023047;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.account-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.account-info p {
+    font-size: 16px;
+    color: #023047;
+    margin: 10px 0;
+}
+
+.account-info strong {
+    font-weight: 800;
+}
+
+.cart-summary h3 {
+    font-family: "Chakra Petch", sans-serif;
+    color: #023047;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.cart-summary ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.cart-summary li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary button {
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.cart-summary button:hover {
+    background-color: #c92a2a;
+    color: #fff;
+}
+
+/* Button for Deleting Account */
+button {
+    background-color: #023047;
+    color: #fff;
+    font-weight: 800;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #031b2d;
+}
+
+/* Modal Styles */
+.modal-body {
+    font-size: 16px;
+    color: #023047;
+}
+
+.modal-footer button {
+    font-weight: 600;
+}
+
+.modal-footer .btn-danger {
+    background-color: #c92a2a;
+    border-color: #c92a2a;
+}
+
+.modal-footer .btn-danger:hover {
+    background-color: #9b2222;
+    border-color: #9b2222;
+}
+
+/* Message Styles */
+p {
+    font-size: 16px;
+    color: #c92a2a;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .account-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .account-info,
+    .cart-summary {
+        padding: 10px;
+    }
+
+    .cart-summary button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
