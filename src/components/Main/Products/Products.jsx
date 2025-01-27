@@ -12,7 +12,7 @@ import SearchFilter from './SearchFilter';
 import './styles/products.css';
 
 
-const Products = ({ addToCart }) => {  // Asegúrate de recibir `addToCart`
+const Products = ({ addToCart }) => {  
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]); 
   const [loading, setLoading] = useState(true);
