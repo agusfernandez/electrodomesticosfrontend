@@ -8,6 +8,8 @@ import CartPage from '../Main/CartPage/CartPage';
 import Register from '../Main/Register/Register';
 import Login from '../Main/Login/Login';
 import MyAccount from '../Main/MyAccount/MyAccount';
+import ProductosDestacados from '../Main/ProductDestacados/ProductDestacados';
+import AdminProductos from  '../Main/Admin/Admin';
 import './styles/header.css';
 import axios from 'axios';
 import Contacto from '../Main/Contacto/Contacto'
@@ -62,47 +64,54 @@ const Header = () => {
   };
   
 
-  return (
-    <Router>
-      <Navbar bg="light" variant="light" expand="lg">
-        <Container fluid className="container-nav">
-          <Image src="/img/logo/logo.png" className="logo" />
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-              <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
-              <NavDropdown title={user ? 'Mi Cuenta' : 'Cuenta'} id="basic-nav-dropdown">
-                {user ? (
-                  <>
-                    <NavDropdown.Item as={Link} to="/myaccount">Mi Cuenta</NavDropdown.Item>
-                    <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
-                  </>
-                ) : (
-                  <>
-                    <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/register">Registro</NavDropdown.Item>
-                  </>
-                )}
-              </NavDropdown>
-              <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          <Nav.Item className="cart"><Link to="/cart"><IoIosCart className='cart-icon'/> ({cartItems.length})</Link></Nav.Item>
-        </Container>
-      </Navbar>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/electrodomesticos" element={<Products addToCart={addToCart} />} />
-        <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/myaccount" element={<MyAccount cartItems={cartItems} removeFromCart={removeFromCart} user={user} />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Navbar bg="light" variant="light" expand="lg">
+                <Container fluid className="container-nav">
+                    <Image src="/img/logo/logo.png" className="logo"/>
+    
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
+                            <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
+                            <Nav.Link><Link to="/admin">Admin</Link></Nav.Link>
+                            <Nav.Link><Link to="/destacados">Destacados</Link></Nav.Link>
+                            <NavDropdown title={user ? 'Mi Cuenta' : 'Cuenta'} id="basic-nav-dropdown">
+                              {user ? (
+                                <>
+                                  <NavDropdown.Item as={Link} to="/myaccount">Mi Cuenta</NavDropdown.Item>
+                                  <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
+                                </>
+                              ) : (
+                                <>
+                                  <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
+                                  <NavDropdown.Item as={Link} to="/register">Registro</NavDropdown.Item>
+                                </>
+                              )}
+                          </NavDropdown>
+                          <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                    <Nav.Item className="cart"><Link to="/cart"><IoIosCart className='cart-icon'/> ({cartItems.length})</Link></Nav.Item>
+                </Container>
+            </Navbar>
+ 
+            <div>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/electrodomesticos" element={<Products addToCart={addToCart} />} />
+                    <Route path="/destacados" element={<ProductosDestacados  />} />
+                    <Route path="/admin" element={<AdminProductos  />} />
+                    <Route path="/contacto" element={<Contacto />} />
+                    <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/myaccount" element={<MyAccount cartItems={cartItems} removeFromCart={removeFromCart} user={user} />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 };
 
 export default Header;
