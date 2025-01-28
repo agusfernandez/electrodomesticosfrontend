@@ -1,11 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Modal } from 'react-bootstrap';
 import './Styles/MyAccount.css';
 
-const MyAccount = ({ user, onLogout, removeFromCart, cartItems }) => {
+const MyAccount = ({ onLogout, removeFromCart, cartItems }) => {
+  const [user, setUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          setMessage('No estás autenticado');
+          return;
+        }
+
+        const response = await axios.get('http://localhost:8081/auth/user', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setUser(response.data.user);
+      } catch (error) {
+        setMessage("Error al obtener los datos del usuario");
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleDeleteAccount = async () => {
     try {
@@ -14,20 +39,26 @@ const MyAccount = ({ user, onLogout, removeFromCart, cartItems }) => {
         setMessage('No estás autenticado');
         return;
       }
-
-      // Realizar la solicitud DELETE al backend con el token en la cabecera
-      await axios.delete(`http://localhost:8081/auth/delete/${user._id}`, {
+  
+      await axios.delete(`http://localhost:8081/auth/user/${user._id}`, {
         headers: {
-          Authorization: `Bearer ${token}`, // Enviar el token
+          Authorization: `Bearer ${token}`,
         },
       });
-
+  
       setMessage("Cuenta eliminada con éxito");
-      onLogout(); // Logout después de eliminar la cuenta
+      localStorage.removeItem("token"); // Limpia el token
+      onLogout(); // Actualiza el estado del usuario
+      window.location.href = "/"; // Redirige a la página de inicio
     } catch (error) {
       setMessage("Error al eliminar la cuenta");
     }
   };
+  
+
+  if (!user) {
+    return <p>Cargando...</p>;
+  }
 
   return (
     <div className="account-container">

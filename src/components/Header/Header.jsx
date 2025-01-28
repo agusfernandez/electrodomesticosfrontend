@@ -51,15 +51,16 @@ const Header = () => {
   };
 
   const handleLogout = async () => {
-    // Hacer logout
     try {
       await axios.post('http://localhost:8081/auth/logout');
-      localStorage.removeItem('token'); // Limpiar token del localStorage
-      setUser(null); // Actualizar estado
+      localStorage.removeItem('token');
+      setUser(null); // Limpia el estado del usuario
+      window.location.href = "/"; // Redirige a la página de inicio
     } catch (error) {
       console.error("Error al cerrar sesión", error);
     }
   };
+  
 
   return (
     <Router>
@@ -73,17 +74,17 @@ const Header = () => {
               <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
               <NavDropdown title={user ? 'Mi Cuenta' : 'Cuenta'} id="basic-nav-dropdown">
                 {user ? (
-                    <>
+                  <>
                     <NavDropdown.Item as={Link} to="/myaccount">Mi Cuenta</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/login" onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
-                    </>
+                    <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
+                  </>
                 ) : (
-                    <>
+                  <>
                     <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/register">Registro</NavDropdown.Item>
-                    </>
+                  </>
                 )}
-                </NavDropdown>
+              </NavDropdown>
               <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
