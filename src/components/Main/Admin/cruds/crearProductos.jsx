@@ -46,8 +46,7 @@ const CrearProductos = () => {
 
    return (
     <>
-        <Button onClick={handleShow}>Crear Producto</Button>
-
+        <Button  className='m-3' variant="primary" type="submit" value="Enviar" onClick={handleShow}>Crear Producto</Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Crear Producto</Modal.Title>

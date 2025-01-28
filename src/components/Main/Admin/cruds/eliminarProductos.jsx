@@ -51,7 +51,7 @@ const EliminarProductos = () => {
 
     return (
         <>
-             <Button className='shadow m-3' variant="primary" type="submit" value="Enviar" onClick={handleShow}>Borrar Producto</Button>
+             <Button className='m-3' variant="primary" type="submit" value="Enviar" onClick={handleShow}>Borrar Producto</Button>
              <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Eliminar Producto</Modal.Title>

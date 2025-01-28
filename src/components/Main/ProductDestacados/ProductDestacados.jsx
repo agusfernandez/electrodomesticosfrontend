@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Spinner  from 'react-bootstrap/Spinner';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -58,36 +60,40 @@ export const ProductosDestacados = () => {
     }
 
     return (
-        <Container className="backGround d-flex flex-wrap gap-3 justify-content-center mt-5">
-            {productos.map((producto) => (
-                <Card key={producto.id} style={{ width: '18rem' }}>
-                    <Card.Img
-                        variant="top"
-                        src={producto.imagen}
-                        style={{ height: '400px' }}
-                        alt={producto.nombre}
-                    />
-                    <Card.Body>
-                        <Card.Text className="conditiontag">
-                            {producto.estado}
-                        </Card.Text>
-                        <Card.Subtitle className="mb-2 text-muted">{producto.marca}</Card.Subtitle>
+        <Container fluid="md" className="productsContainer">
+            <Row>
+                <Col className="productsBlock">
+                    {productos.map((producto) => (
+                        <Card key={producto.id} style={{ width: '18rem' }}>
+                            <Card.Img
+                                variant="top"
+                                src={producto.imagen}
+                                className="imageCard"
+                                alt={producto.nombre}
+                            />
+                            <Card.Body>
+                                <Card.Text className="conditiontag">
+                                    {producto.estado}
+                                </Card.Text>
+                                <Card.Subtitle className="mb-2 text-muted">{producto.marca}</Card.Subtitle>
 
-                        <Card.Title>{producto.nombre}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{producto.categoria}</Card.Subtitle>
+                                <Card.Title>{producto.nombre}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{producto.categoria}</Card.Subtitle>
 
-                        <Card.Text>
-                            {producto.descripcion}
-                        </Card.Text>
-                        <Card.Text>
-                            ${producto.precio}
-                        </Card.Text>
-                        <Button variant="primary">Comprar</Button>
+                                <Card.Text>
+                                    {producto.descripcion}
+                                </Card.Text>
+                                <Card.Text>
+                                    ${producto.precio}
+                                </Card.Text>
+                                <Button variant="primary" className="btn-primary-card">Comprar</Button>
 
-                    </Card.Body>
+                            </Card.Body>
 
-                </Card>
-            ))}
+                        </Card>
+                    ))}
+                </Col>
+            </Row>
         </Container>
     );
 

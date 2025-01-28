@@ -75,7 +75,7 @@ const ActualizarProductos = () => {
     return (
         <>
             <div>
-                <Button onClick={handleShow}>Actualizar Producto</Button>
+                <Button className='m-3' variant="primary" type="submit" value="Enviar" onClick={handleShow}>Actualizar Producto</Button>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Actualizar Producto</Modal.Title>
@@ -88,8 +88,7 @@ const ActualizarProductos = () => {
                                     <option>Seleccionar un producto</option>
                                     {productos.map((producto) => (
                                         <option key={producto._id} value={producto._id}>
-                                            {producto.nombre} - {producto.precio} - {producto.descripcion} - {producto.categoria} - {producto.estado} - {producto.stock} - {producto.marca}
-
+                                           {producto._id} - {producto.nombre}
                                         </option>
                                     ))}
                                 </Form.Select>
@@ -104,6 +103,16 @@ const ActualizarProductos = () => {
                                             name="nombre"
                                             onChange={(event) => {
                                                 setDatosProductos({ ...datosProductos, nombre: event.target.value });
+                                            }}
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="precio">
+                                        <Form.Label>Precio del Producto</Form.Label>
+                                        <Form.Control
+                                            defaultValue={datosProductos.precio}
+                                            name="precio"
+                                            onChange={(event) => {
+                                                setDatosProductos({ ...datosProductos, precio: event.target.value });
                                             }}
                                         />
                                     </Form.Group>

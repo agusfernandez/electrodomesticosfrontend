@@ -28,3 +28,14 @@ li::marker {
     display: none;
     font-size: 0;
 }
+
+.btn-primary {
+    background-color: #023047;
+    border: 1px solid #023047;
+}
+
+.btn-primary:hover {
+    background-color: #023047;
+    border: 1px solid #023047;
+
+}
