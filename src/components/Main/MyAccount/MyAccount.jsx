@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Modal } from 'react-bootstrap';
 import './Styles/MyAccount.css';
 
-const MyAccount = ({ onLogout, removeFromCart, cartItems }) => {
-  const [user, setUser] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+const MyAccount = ({ onLogout }) => {
+  const [user, setUser ] = useState(null);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserData = async () => { // Corregido aquí
       try {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -29,35 +27,12 @@ const MyAccount = ({ onLogout, removeFromCart, cartItems }) => {
       }
     };
 
-    fetchUserData();
+    fetchUserData(); // Asegúrate de que esta línea también esté correcta
   }, []);
 
-  const handleDeleteAccount = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        setMessage('No estás autenticado');
-        return;
-      }
-  
-      await axios.delete(`http://localhost:8081/auth/user/${user._id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      setMessage("Cuenta eliminada con éxito");
-      localStorage.removeItem("token"); // Limpia el token
-      onLogout(); // Actualiza el estado del usuario
-      window.location.href = "/"; // Redirige a la página de inicio
-    } catch (error) {
-      setMessage("Error al eliminar la cuenta");
-    }
-  };
-  
-
+  // Verifica si el usuario está cargando o no está disponible
   if (!user) {
-    return <p>Cargando...</p>;
+    return <p>Cargando...</p>; // O puedes mostrar un mensaje de error
   }
 
   return (
@@ -68,35 +43,6 @@ const MyAccount = ({ onLogout, removeFromCart, cartItems }) => {
         <p><strong>Correo:</strong> {user.email}</p>
         <p><strong>Username:</strong> {user.username}</p>
       </div>
-      
-      <div className="cart-summary">
-        <h3>Carrito de Compras</h3>
-        <ul>
-          {cartItems.map(item => (
-            <li key={item.id}>
-              {item.title} - Cantidad: {item.quantity}
-              <Button variant="danger" onClick={() => removeFromCart(item.id)}>Eliminar</Button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      <Button variant="danger" onClick={() => setShowModal(true)}>
-        Eliminar mi cuenta
-      </Button>
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmación</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          ¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>Cancelar</Button>
-          <Button variant="danger" onClick={handleDeleteAccount}>Eliminar cuenta</Button>
-        </Modal.Footer>
-      </Modal>
 
       {message && <p>{message}</p>}
     </div>

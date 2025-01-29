@@ -99,15 +99,8 @@ button .navbar-toggler-icon:hover {
     }
 
     .navbar-nav {
-        display: none; 
         flex-direction: column; /* Organiza los elementos en columna */
-        width: 100%; 
-        height: 300px;
-        background: #F8F9FA; 
-        position: absolute; /* Posiciona el menú desplegable */
-        top: 55px; /* Ajusta según la altura de la navbar */
-        left: 0;
-        z-index: 100; /* Asegura que esté por encima de otros elementos */
+        
     }
 
     .navbar-collapse.show {
@@ -122,18 +115,19 @@ button .navbar-toggler-icon:hover {
 
     .navbar-toggle{
         margin-right: 50px;
+        display: flex;
+        flex-direction: column;
     }
 
     .navbar .navbar-nav {
         padding: 20px;
         gap: 5px;
-        justify-content: center;
 
     }
 
     .navbar .navbar-nav a {
         font-size: 30px;
-        text-align: center;
+        /* text-align: center; */
     }
    
 }
