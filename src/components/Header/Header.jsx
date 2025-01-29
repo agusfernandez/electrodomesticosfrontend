@@ -75,8 +75,8 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link><Link to='/'>Home</Link></Nav.Link>
                             <Nav.Link><Link to="/electrodomesticos">Electrodomesticos</Link></Nav.Link>
-                            <Nav.Link><Link to="/admin">Admin</Link></Nav.Link>
                             <Nav.Link><Link to="/destacados">Destacados</Link></Nav.Link>
+                            <Nav.Link><Link to="/admin">Admin</Link></Nav.Link>
                             <NavDropdown title={user ? 'Mi Cuenta' : 'Cuenta'} id="basic-nav-dropdown">
                               {user ? (
                                 <>
