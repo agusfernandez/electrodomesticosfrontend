@@ -62,15 +62,15 @@ const EliminarProductos = () => {
                                     <option>Seleccionar un producto</option>
                                         {productos.map((producto) =>(
                                         <option key={producto._id} value={producto._id}>
-                                                  {producto.nombre} - {producto.precio} - {producto.descripcion} - {producto.categoria} - {producto.estado} - {producto.stock} - {producto.marca}
+                                                 {producto._id} - {producto.nombre}
                                          </option>
                                     ))}
                             </Form.Select>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                        <Button variant="success" type="submit" onClick={handleDelete}>Borrar Producto</Button>
-                        <Button variant="danger" onClick={handleClose}>Cancelar</Button>
+                        <Button variant="primary" type="submit" onClick={handleDelete}>Borrar Producto</Button>
+                        <Button variant="secondary" onClick={handleClose}>Cancelar</Button>
                 </Modal.Footer>
              </Modal>
 

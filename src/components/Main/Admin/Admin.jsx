@@ -7,9 +7,10 @@ import EliminarProductos from "./cruds/eliminarProductos";
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 export const AdminProductos = () => {
@@ -51,15 +52,14 @@ export const AdminProductos = () => {
                                     <Card.Subtitle className="mb-2 text-muted">{marca}</Card.Subtitle>
                                     <Card.Title>{nombre}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{categoria}</Card.Subtitle>
-                                    <Card.Text>
+                                    <Card.Text className='card-description'>
                                         {descripcion}
                                     </Card.Text>
-                                    <Card.Text>
-                                        ${precio}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        stock: {stock}
-                                    </Card.Text>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>  ${precio}</ListGroup.Item>
+                                        <ListGroup.Item>stock: {stock}</ListGroup.Item>
+                                    </ListGroup>
+                                
                                 </Card.Body>
                             </Card>
                         ))

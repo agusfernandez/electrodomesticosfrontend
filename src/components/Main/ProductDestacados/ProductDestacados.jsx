@@ -77,10 +77,10 @@ export const ProductosDestacados = () => {
                                 </Card.Text>
                                 <Card.Subtitle className="mb-2 text-muted">{producto.marca}</Card.Subtitle>
 
-                                <Card.Title>{producto.nombre}</Card.Title>
+                                <Card.Title className="card-title">{producto.nombre}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">{producto.categoria}</Card.Subtitle>
 
-                                <Card.Text>
+                                <Card.Text className='card-description'>
                                     {producto.descripcion}
                                 </Card.Text>
                                 <Card.Text>

@@ -39,7 +39,22 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.6rem;
+    font-size: 1.8rem!important;
+}
+
+.card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+.list-group-item {
+    margin-top: 5px!important;
+    padding: 5px 0!important;
+    background-color:#FAF9F9!important ;
 }
 
 .conditiontag {

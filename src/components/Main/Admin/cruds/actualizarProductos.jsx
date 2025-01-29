@@ -93,6 +93,7 @@ const ActualizarProductos = () => {
                                     ))}
                                 </Form.Select>
                             </Form.Group>
+                            <br />
 
                             {productoSele && (
                                 <>
@@ -116,6 +117,18 @@ const ActualizarProductos = () => {
                                             }}
                                         />
                                     </Form.Group>
+                                    <Form.Group controlId="stock">
+                                        <Form.Label>Stock del Producto</Form.Label>
+                                        <Form.Control
+                                            defaultValue={datosProductos.stock}
+                                            name="stock"
+                                            onChange={(event) => {
+                                                setDatosProductos({ ...datosProductos, stock: event.target.value });
+                                            }}
+                                        />
+                                    </Form.Group>
+
+                            
 
                                     
                               
@@ -124,10 +137,10 @@ const ActualizarProductos = () => {
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="success" type="submit" onClick={handleSubmit}>
+                        <Button variant="primary" type="submit" onClick={handleSubmit}>
                             Actualizar Producto
                         </Button>
-                        <Button variant="danger" onClick={handleClose}>
+                        <Button variant="secondary" onClick={handleClose}>
                             Cancelar
                         </Button>
                     </Modal.Footer>
