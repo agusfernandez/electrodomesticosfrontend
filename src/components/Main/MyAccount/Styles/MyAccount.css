@@ -79,9 +79,10 @@ button {
     transition: background-color 0.3s;
 }
 
+/*
 button:hover {
     background-color: #031b2d;
-}
+}*/
 
 /* Modal Styles */
 .modal-body {
