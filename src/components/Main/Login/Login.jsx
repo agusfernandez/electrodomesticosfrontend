@@ -1,48 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext"; // Importa el contexto de autenticación
 import "./Styles/Login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-
-  // Inicializa el hook useNavigate
+  const { login } = useContext(AuthContext); // Usa el contexto de autenticación
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage("");
     setError("");
 
     try {
-      // Hacer la solicitud al backend
       const response = await axios.post("http://localhost:8081/auth/login", formData);
-      setMessage("Inicio de sesión exitoso.");
+      console.log('respuesta del servidor!!!', response.data.user);
 
-      // Guarda el token en localStorage
-      localStorage.setItem("token", response.data.token);
+      // Guarda el token y el usuario en el contexto
+      login(response.data.token, response.data.user);
 
-      // Redirige al usuario a "Mi Cuenta" después de login exitoso
-      navigate('/myaccount'); // Redirige a la página de Mi Cuenta
+
+      // Redirige según el rol del usuario
+      if (response.data.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/myaccount");
+      }
 
     } catch (err) {
-      if (err.response) {
-        setError(err.response.data.message);
-      } else {
-        setError("Error al iniciar sesión. Por favor, intenta nuevamente.");
-      }
+      console.log('Error al loguearse', err);
+      setError(err.response?.data?.message || "Error al iniciar sesión");
+     
     }
   };
 
@@ -75,7 +70,6 @@ const Login = () => {
               required
             />
           </div>
-          {message && <p className="register-message success">{message}</p>}
           {error && <p className="register-message error">{error}</p>}
           <button type="submit" className="btn register-button w-100">
             Iniciar Sesión
@@ -87,4 +81,3 @@ const Login = () => {
 };
 
 export default Login;
-

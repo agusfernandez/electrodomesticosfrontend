@@ -16,6 +16,9 @@ export async function getProductos() {
 
 export async function addProductos(productosData) {
 
+    const token = localStorage.getItem('token'); 
+
+
     const formData = new FormData();
     formData.append('nombre', productosData.nombre);
     formData.append('marca', productosData.marca);
@@ -27,7 +30,12 @@ export async function addProductos(productosData) {
     formData.append('stock', productosData.stock);
 
     try {
-        const response = await axios.post(`${baseUrl}/productos`, formData);
+        const response = await axios.post(`${baseUrl}/productos`, formData, {
+            headers: {
+                 'Authorization': `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data',
+            }
+        });
         console.log('Producto agregado:', response.data);
         return response.data;
 
@@ -40,11 +48,16 @@ export async function addProductos(productosData) {
 
 
 export async function updateProductos(_id, datosNuevo) {
+    const token = localStorage.getItem('token'); 
     try{
         const response = await axios({
             url: `${baseUrl}/productos/${_id}`,
             method: "PUT",
-            data: datosNuevo
+            data: datosNuevo,
+            headers : {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
         })
         return response
     }
@@ -55,10 +68,16 @@ export async function updateProductos(_id, datosNuevo) {
 }
 
 export async function deleteProductos(_id) {
-    try{
+
+    const token = localStorage.getItem('token'); 
+
+    try {
         const response = await axios({
             url: `${baseUrl}/productos/${_id}`,
-            method: "DELETE"
+            method: "DELETE",
+            headers : {
+                'Authorization': `Bearer ${token}`           
+            }
         })
         return response
     }

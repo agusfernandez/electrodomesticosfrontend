@@ -7,9 +7,11 @@ const MyAccount = ({ onLogout }) => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const fetchUserData = async () => { // Corregido aquí
+    const fetchUserData = async () => { 
       try {
         const token = localStorage.getItem('token');
+        console.log('le pasa el token', token);
+
         if (!token) {
           setMessage('No estás autenticado');
           return;
@@ -21,18 +23,29 @@ const MyAccount = ({ onLogout }) => {
           },
         });
 
-        setUser(response.data.user);
+
+        if (response.data.user) {
+          setUser(response.data.user);
+        } else {
+          setMessage("No se pudo obtener el usuario");
+        }
+
+        console.log('Respuesta del backend',response.data);
+
+
+
       } catch (error) {
+        console.error("Error al obtener los datos del usuario:", error.response || error);
         setMessage("Error al obtener los datos del usuario");
       }
     };
 
-    fetchUserData(); // Asegúrate de que esta línea también esté correcta
+    fetchUserData(); 
   }, []);
 
-  // Verifica si el usuario está cargando o no está disponible
   if (!user) {
-    return <p>Cargando...</p>; // O puedes mostrar un mensaje de error
+    console.log('usuario1',user)
+    return <p>Cargando Mi Cuenta</p>; 
   }
 
   return (
