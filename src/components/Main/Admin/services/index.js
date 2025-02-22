@@ -55,8 +55,7 @@ export async function updateProductos(_id, datosNuevo) {
             method: "PUT",
             data: datosNuevo,
             headers : {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
+                'Authorization': `Bearer ${token}`
             }
         })
         return response

@@ -15,6 +15,7 @@ const ActualizarProductos = () => {
 
             if (response.status === 200) {
                 setProductos(response.data.productos);
+                console.log(response.data.productos);
             } else {
                 console.log("Error al obtener productos con el estado:", response.status);
             }
@@ -35,43 +36,35 @@ const ActualizarProductos = () => {
 
     const inputFileRef = useRef();
 
-    const handleSubmit = () => {
-        const newNombre = datosProductos.nombre;
-        const newMarca = datosProductos.marca;
-        const newDescripcion = datosProductos.descripcion;
-        const newPrecio = datosProductos.precio;
-        const newCategoria = datosProductos.categoria;
-        const newEstado = datosProductos.estado;
-        const newStock = datosProductos.stock;
-
-        const newImagen = inputFileRef.current?.files[0]; 
-
-        const datosNuevos = {
-            nombre: newNombre,
-            marca: newMarca,
-            precio: newPrecio,
-            descripcion: newDescripcion,
-            categoria: newCategoria,
-            estado: newEstado,
-            stock: newStock,
-            imagen: newImagen
-        };
-
+    const handleSubmit = async () => {
         const confirmarActualizacion = window.confirm("¿Estás seguro de actualizar el producto?");
-
-        if (confirmarActualizacion) {
-            updateProductos(productoSele, datosNuevos)
-                .then((response) => {
-                    console.log(response);
-                    handleClose();
-                    window.location.reload();
-                })
-                .catch((error) => {
-                    console.log('Error en actualización', error);
-                });
+        
+        if (!confirmarActualizacion) return;
+    
+        const formData = new FormData();
+        formData.append("nombre", datosProductos.nombre);
+        formData.append("marca", datosProductos.marca);
+        formData.append("precio", datosProductos.precio);
+        formData.append("descripcion", datosProductos.descripcion);
+        formData.append("categoria", datosProductos.categoria);
+        formData.append("estado", datosProductos.estado);
+        formData.append("stock", datosProductos.stock);
+    
+        // Agregar la nueva imagen si se seleccionó
+        if (inputFileRef.current?.files[0]) {
+            formData.append("imagen", inputFileRef.current.files[0]);
+        }
+    
+        try {
+            const response = await updateProductos(productoSele, formData);
+            console.log(response);
+            handleClose();
+            window.location.reload();
+        } catch (error) {
+            console.log('Error en actualización', error);
         }
     };
-
+    
     return (
         <>
             <div>
@@ -116,6 +109,12 @@ const ActualizarProductos = () => {
                                                 setDatosProductos({ ...datosProductos, precio: event.target.value });
                                             }}
                                         />
+                                    </Form.Group>
+                                    <Form.Group controlId="imagen">
+                                        <Form.Label>Imagen del Producto</Form.Label>
+                                        <Form.Control type="file" ref={inputFileRef}/>
+
+
                                     </Form.Group>
                                     <Form.Group controlId="stock">
                                         <Form.Label>Stock del Producto</Form.Label>

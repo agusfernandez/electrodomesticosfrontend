@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
-          console.log("Usuario autenticado desde el contexto:", res.data.user);
           setUser(res.data.user);
         })
         .catch((err) => {
