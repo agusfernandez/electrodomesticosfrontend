@@ -3,8 +3,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 25px;
-    justify-content: center;
-    margin: 40px 0;
+    margin: 40px auto;
+    justify-content: flex-start;
 }
 
 .productsContainer {
@@ -14,9 +14,9 @@
 .card {
     border: 1px solid #000 !important;
     position: relative;
-    width: 300px;
-    flex: 1 1 auto; 
-    margin: 0 auto;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 0;
 }
 
 .imageCard {

@@ -10,7 +10,7 @@ const FormularioNewsletter = ({agregarSuscriptor}) =>{
         e.preventDefault();
         if (correo){
             agregarSuscriptor(correo);
-            setCorreo('');//Limpiar el campo una vez agregado
+            setCorreo('');
         }
     }
 
@@ -22,7 +22,6 @@ const FormularioNewsletter = ({agregarSuscriptor}) =>{
                 <Form.Control type="email" placeholder="name@example.com"   value={correo}
             onChange={(e) => setCorreo(e.target.value)} className="newsletter-input"/>
                 <Button variant="primary" type="submit" className="btn-newsletter">Enviar</Button>
-
             </Form.Group>
         </Form>
         

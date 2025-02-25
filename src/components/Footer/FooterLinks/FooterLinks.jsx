@@ -59,13 +59,13 @@ const FooterLinks = () => {
                         {!isMobile || activeSection === 'social' ? (
                             <div className="social-icons">
                                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                    <FaFacebook size="2em"  className="socialicons"/>
+                                    <FaFacebook size="1.5em"  className="socialicons"/>
                                 </a>
                                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                    <FaInstagram size="2em" className="socialicons"/>
+                                    <FaInstagram size="1.5em" className="socialicons"/>
                                 </a>
                                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                                    <FaTwitter size="2em" className="socialicons"/>
+                                    <FaTwitter size="1.5em" className="socialicons"/>
                                 </a>
                             </div>
                         ) : null}
